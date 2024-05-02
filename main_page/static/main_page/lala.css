@@ -8,3 +8,10 @@
     background-repeat: no-repeat;
     background-position: right;
 }
+
+
+/*styles for button*/
+.box {
+    background-color: black;
+    color: #ffffff;
+    border-radius: 30px;}
