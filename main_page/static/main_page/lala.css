@@ -1,0 +1,10 @@
+.box{
+    min-height: 100vh;
+    width: 100%;
+
+    background-color: #FFF5E7;
+    background-image: url(img/beautiful-scenery-of-sand-dunes-in-a-desert-area-on-a-sunny-day.jpg);
+    background-size: 800px 600px;
+    background-repeat: no-repeat;
+    background-position: right;
+}

@@ -1,12 +1,19 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Hello</title>
+    <link rel="stylesheet" href="{% static 'main_page/lala.css' %}">
+
 </head>
 <body>
+
+<div class ='box'>
     {% for i in days %}
-    <h1>Ваш день - {{i}}</h1>
+    <h1>{{i}}</h1>
     {% endfor %}
+</div>
+
 </body>
 </html>
