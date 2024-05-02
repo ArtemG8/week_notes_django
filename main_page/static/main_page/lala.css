@@ -1,3 +1,5 @@
+
+
 .box{
     min-height: 100vh;
     width: 100%;
@@ -7,11 +9,23 @@
     background-size: 800px 600px;
     background-repeat: no-repeat;
     background-position: right;
-}
+    }
 
 
 /*styles for button*/
-.box {
+
+.button {
     background-color: black;
-    color: #ffffff;
-    border-radius: 30px;}
+    color: white;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 5px; /* Добавляет небольшое расстояние между кнопками */
+    width: 10cm; /* Ограничивает ширину кнопки до 10 см */
+
+}
+
+.button_main {   /* что бы двигать дни  */
+position: absolute;
+    top: 150px;
+    left: 20px;
+    }
