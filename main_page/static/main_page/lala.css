@@ -3,12 +3,12 @@
 .box{
     min-height: 100vh;
     width: 100%;
-
     background-color: #FFF5E7;
     background-image: url(img/beautiful-scenery-of-sand-dunes-in-a-desert-area-on-a-sunny-day.jpg);
     background-size: 800px 600px;
     background-repeat: no-repeat;
     background-position: right;
+
     }
 
 
@@ -17,15 +17,28 @@
 .button {
     background-color: black;
     color: white;
-    border-radius: 10px;
-    padding: 10px 20px;
-    margin: 5px; /* Добавляет небольшое расстояние между кнопками */
-    width: 10cm; /* Ограничивает ширину кнопки до 10 см */
+    border-radius: 17px;
+    padding: 20px 10px;
+    margin: 20px; /* Добавляет небольшое расстояние между кнопками */
+    width: 5cm; /* Ограничивает ширину кнопки до 10 см */
 
 }
 
 .button_main {   /* что бы двигать дни  */
 position: absolute;
-    top: 150px;
+    top: 35px;
     left: 20px;
     }
+
+
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited {
+    color: white;
+}
+
+a:hover {
+    color: #B0D4E3 ;
+}

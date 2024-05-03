@@ -12,12 +12,10 @@
 <div class ='box'>
     <div class="button_main">
         {% for i in days %}
-        <h1 class="button">{{i}}</h1>
+        <h1 class="button"><a href="{%url 'abc' %}">{{ i }}</a></h1>
         {% endfor %}
     </div>
-
 </div>
-
 
 
 </body>
