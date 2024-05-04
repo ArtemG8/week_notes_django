@@ -7,14 +7,19 @@
     background-image: url(img/beautiful-scenery-of-sand-dunes-in-a-desert-area-on-a-sunny-day.jpg);
     background-size: 800px 600px;
     background-repeat: no-repeat;
-    background-position: right;
+    background-position: center;
 
     }
 
 
 /*styles for button*/
+.buttons_left{   /* что бы двигать дни  */
+position: absolute;
+    top: 25px;
+    left: 20px;
+    }
 
-.button {
+.button_left {
     background-color: black;
     color: white;
     border-radius: 17px;
@@ -24,11 +29,42 @@
 
 }
 
-.button_main {   /* что бы двигать дни  */
+
+
+.buttons_right{   /* что бы двигать дни  */
 position: absolute;
-    top: 35px;
-    left: 20px;
+    top: 25px;
+    right: 20px;
     }
+
+.button_right1 {
+    background-color: black;
+    color: white;
+    border-radius: 17px;
+    padding: 60px 10px;
+    margin: 20px; /* Добавляет небольшое расстояние между кнопками */
+    width: 5cm; /* Ограничивает ширину кнопки до 10 см */
+
+ }
+
+.button_right2 {
+    background-color: black;
+    color: white;
+    border-radius: 17px;
+    padding: 60px 10px;
+    margin: 20px; /* Добавляет небольшое расстояние между кнопками */
+    width: 5cm; /* Ограничивает ширину кнопки до 10 см */
+    position: absolute;
+    top: 460px;
+
+ }
+.logo_tg{
+padding: 60px 100px;
+position: absolute;
+    top: 190px;
+    right: -60px;
+
+}
 
 
 a {

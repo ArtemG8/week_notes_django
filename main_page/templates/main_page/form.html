@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+  <link rel="stylesheet" href="{% static 'main_page/css/forms.css' %}">
+  <script src="{% static 'main_page/js/script.js' %}"></script>
+</head>
+<body>
+
+
+<h2>Здравствуйте, какие планы на сегодня?</h2>
+  <form  method="post">
+  {% csrf_token %}
+<div>
+
+</div>
+  {% for field in form %}
+    <div class ='feedback-form'>
+      {{ field.label_tag}}
+      {{ field.errors }}
+      {{ field }}
+    </div>
+  {% endfor %}
+
+
+  <input type="submit" value="Submit"  />
+  </form>
+</body>
+</html>

@@ -1,0 +1,123 @@
+/* Сброс стилей и добавление базовой типографики */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #eeeeee;
+  padding: 40px;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+/* Стили формы */
+form {
+  background: white;
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+
+}
+
+/* Стили для каждого поля формы */
+.feedback-form {
+
+  margin-bottom: 20px;
+
+}
+
+.feedback-form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #666;
+   font-size: 20px; /* Задаем размер шрифта для лейблов */
+}
+
+.feedback-form input[type="text"],
+.feedback-form textarea {
+  width: calc(100% - 22px); /* Вычитаем padding и border */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.feedback-form textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+/* Стилизация ошибок */
+.feedback-form .errorlist {
+  color: red;
+  list-style-type: none;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+/* Стили кнопки отправки */
+input[type="submit"] {
+  background-color: #1A1A1A;
+  color: white;
+  border: none;
+  padding: 20px 242px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.5s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #6C6C6C;
+}
+
+/* Отзывчивость */
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+  }
+
+  form {
+    padding: 150px;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+  }
+}
+.errorlist {
+  color: #D8000C;
+  background-color: #FFD2D2;
+  border: 1px solid #D8000C;
+  padding: .5rem;
+  margin: .5rem 0;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.15), 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.errorlist li {
+  list-style-type: none;
+}
+.errorlist {
+  /* предыдущие стили */
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
