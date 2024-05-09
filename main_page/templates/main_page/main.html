@@ -12,8 +12,8 @@
 
 <div class ='box'>
     <div class="buttons_left">
-        {% for i in days %}
-        <h1 class="button_left"><a href="{%url 'info_dir' %}">{{ i }}</a></h1>
+        {% for day in days %}
+        <h1 class="button_left"><a href="{%url 'info_dir' sign_day=day %}">{{ day | title }}</a></h1>
         {% endfor %}
     </div>
     <div class='buttons_right'>

@@ -5,16 +5,17 @@ from .forms import DataForm
 
 # Create your views here.
 def main(request):
-    days_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    days_of_week = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday",
+                    "sunday"]  # Вывод дней недели на главный экран
     data = {
         'days': days_of_week
     }
     return render(request, 'main_page/main.html', context=data)
 
 
-def info_ab_days(request):
+def info_ab_days(request,sign_day):
     data = {
-        'days': Days.objects.all()
+        'days': Days.objects.values_list('monday', flat=True) # вывод инфы о делах по дням
 
     }
     return render(request, 'main_page/info_redirect.html', context=data)

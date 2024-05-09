@@ -8,3 +8,5 @@ class Days(models.Model):
     tuesday = models.TextField()
     wednesday = models.TextField()
 
+    def __str__(self):
+        return f'{self.monday} {self.tuesday} {self.wednesday}'

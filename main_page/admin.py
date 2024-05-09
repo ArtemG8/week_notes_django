@@ -2,21 +2,13 @@ from django.contrib import admin
 from .models import Days
 from django.db.models import QuerySet
 
+
 # Register your models here.
-
-admin.site.register(Days)
-
-
+class MovieAdmin(admin.ModelAdmin):
+    list_display = ['monday', 'tuesday', 'wednesday']
 
 
-
-
-
-
-
-
-
-
+admin.site.register(Days, MovieAdmin)
 
 #
 # class RatingFilter(admin.SimpleListFilter):
