@@ -3,10 +3,26 @@ from django.db import models
 
 # Create your models here.
 
-class Days(models.Model):
-    monday = models.TextField()
-    tuesday = models.TextField()
-    wednesday = models.TextField()
+class Monday(models.Model):
+    date_of_create = models.DateField()
+    task = models.TextField()
 
     def __str__(self):
-        return f'{self.monday} {self.tuesday} {self.wednesday}'
+        return f'{self.date_of_create} {self.task}'
+
+
+class Tuesday(models.Model):
+    date_of_create = models.DateField()
+    task = models.TextField()
+
+    def __str__(self):
+        return f'{self.date_of_create} {self.task}'
+
+
+class Wednesday(models.Model):
+    date_of_create = models.DateField()
+    task = models.TextField()
+
+    def __str__(self):
+        return f'{self.date_of_create} {self.task}'
+
