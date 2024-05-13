@@ -14,14 +14,14 @@
 <h2>Здравствуйте, какие планы на сегодня?</h2>
   <form  method="post">
   {% csrf_token %}
-    <input type="date" value="{{min_day_value}}" min={{min_day_value}}>
+
 <div>
 
 </div>
 
   {% for field in form %}
     <div class ='feedback-form'>
-      {{ field.label_tag}}
+      <h1>{{ field.label_tag}}</h1>
       {{ field.errors }}
       {{ field }}
 

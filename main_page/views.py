@@ -30,7 +30,6 @@ def info_ab_days(request, model_name):
 
 def Form(request):
     min_day_value = datetime.today().strftime('%Y-%m-%d')
-    print(min_day_value)
     if request.method == 'POST':
         form = DataForm(request.POST)
         if form.is_valid():
