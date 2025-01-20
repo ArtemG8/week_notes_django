@@ -1,6 +1,6 @@
-{% load static %}
 
 <!DOCTYPE html>
+{% load static %}
 <html>
 <head>
     <meta charset="UTF-8">
@@ -9,15 +9,9 @@
   <script src="{% static 'main_page/js/script.js' %}"></script>
 </head>
 <body>
-
-
 <h2>Здравствуйте, какие планы на сегодня?</h2>
   <form  method="post">
   {% csrf_token %}
-
-<div>
-
-</div>
 
   {% for field in form %}
     <div class ='feedback-form'>

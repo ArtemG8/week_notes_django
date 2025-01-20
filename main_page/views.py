@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect
 from .models import Monday, Tuesday, Wednesday
 from .forms import DataForm
 from datetime import datetime
