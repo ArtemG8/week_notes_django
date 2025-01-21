@@ -14,14 +14,15 @@
         <a class="day-button" href="{%url 'info_dir' model_name=day %}">{{ day | title }}</a>
         {% endfor %}
     </div>
-    <img src="static/main_page/img/beautiful-scenery-of-sand-dunes-in-a-desert-area-on-a-sunny-day.jpg" alt="Картинка" class="center-image">
-    <div class='right-buttons_container'>
-    <a href="{%url 'form_dir' %}" class="about-button">Какие планы на сегодня?</a>
-<!--    <div class="logo_tg">-->
-<!--        <h1><img  src="{% static 'main_page/img/Logo.png' %}" width="50" height="50" align="middle" alt="TG logo">Используйте нашего бота в telegram</h1>-->
-<!--    </div>-->
+    <div class="image-container">
+        <img src="static/main_page/img/beautiful-scenery-of-sand-dunes-in-a-desert-area-on-a-sunny-day.jpg" alt="Картинка" class="center-image">
+        <div class="marquee">
+            <span>Бегущая строка текст текст тест</span>
+        </div>
     </div>
-
+    <div class="right-buttons-container">
+        <a href="{%url 'form_dir' %}" class="about-button">Какие планы на сегодня?</a>
+    </div>
 </div>
 
 

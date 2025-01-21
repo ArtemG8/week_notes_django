@@ -6,53 +6,44 @@ body {
 .left-buttons-container {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Расстояние между кнопками */
-    padding: 40px; /* Отступ от края экрана */
+    gap: 20px;
+    padding: 40px;
     padding-top: 40px;
 }
 
-/* Стили для кнопок */
 .day-button {
     text-decoration: none;
     color: white;
-    padding: 17px 35px; /* Уменьшенный размер кнопок */
+    padding: 17px 35px;
     border-radius: 15px;
     text-align: center;
-    font-size: 27px; /* Уменьшенный размер текста */
+    font-size: 27px;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    width: 120px; /* Фиксированная ширина кнопок */
+    width: 120px;
     background-color: black;
     color: white;
 }
 
-/* Эффекты при наведении */
 .day-button:hover {
     background-color: #D4DEDC;
     transform: scale(1.05);
 }
 
-/* Эффекты при нажатии
-.day-button:active {
-    background-color: #D4DEDC;
-    transform: scale(0.95);
-}
-*/
-
-.right-buttons_container {
-  padding: 10px 20px;
-  color: white;
+.right-buttons-container {
+    padding: 10px 20px;
+    color: white;
 }
 
 .about-button {
     display: inline-block;
     text-decoration: none;
     color: white;
-    padding: 17px 35px; /* Уменьшенный размер кнопок */
+    padding: 25px 45px;
     border-radius: 15px;
     text-align: center;
-    font-size: 27px; /* Уменьшенный размер текста */
+    font-size: 30px;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    width: 120px; /* Фиксированная ширина кнопок */
+    width: 120px;
     background-color: black;
     color: white;
     white-space: normal;
@@ -63,27 +54,53 @@ body {
     transform: scale(1.05);
 }
 
-.logo_tg{
-    padding: 60px 100px;
-    position: absolute;
-    top: 190px;
-    right: -60px;
-
-}
-
-
-
 .block-container {
-  display: flex;
-  justify-content: space-between; /* Равномерное распределение элементов */
-  align-items: center; /* Выравнивание по вертикали по центру */
-  height: 100vh; /* Высота контейнера на весь экран */
-  padding: 0 100px; /* Отступы слева и справа */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    padding: 0 100px;
 }
 
+.image-container {
+    position: relative;
+    width: 850px; /* Ширина картинки */
+    height: 600px; /* Высота картинки */
+    overflow: hidden; /* Скрываем текст, выходящий за границы */
+}
 
 .center-image {
-  width: 850px; /* Ширина картинки */
-  height: 600px; /* Автоматическая высота */
-  margin: 0 20px; /* Отступы слева и справа */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.marquee {
+    position: absolute;
+    bottom: 85%;
+    left: 0;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+
+}
+
+.marquee span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 10s linear infinite;
+    color: white;
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes marquee {
+    100% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
