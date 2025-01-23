@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Как вы?</title>
     <link rel="stylesheet" href="{% static 'main_page/css/style.css' %}">
+    <link rel="icon" href=" static/main_page/img/favicon.png " type="image/x-icon">
 </head>
 <body>
 
@@ -17,13 +18,14 @@
     <div class="image-container">
         <img src="static/main_page/img/beautiful-scenery-of-sand-dunes-in-a-desert-area-on-a-sunny-day.jpg" alt="Картинка" class="center-image">
         <div class="marquee">
-            <span>Бегущая строка текст текст тест</span>
+            <span id="motivation-text">{{ motivation.0 }}</span>
         </div>
     </div>
     <div class="right-buttons-container">
         <a href="{%url 'form_dir' %}" class="about-button">Какие планы на сегодня?</a>
     </div>
 </div>
+
 
 
 </body>

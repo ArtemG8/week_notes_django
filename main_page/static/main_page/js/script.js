@@ -7,6 +7,27 @@ window.onload = function() {
     }
 };
 
+
+
+let phrases = [
+    {% for phrase in motivation %}
+        "{{ phrase }}",
+    {% endfor %}
+];
+let currentPhraseIndex = 0;
+const motivationText = document.getElementById('motivation-text');
+
+function getRandomPhrase() {
+    return phrases[Math.floor(Math.random() * phrases.length)];
+}
+
+function changePhrase() {
+    motivationText.textContent = getRandomPhrase();
+}
+
+setInterval(changePhrase, 10000); // Меняем фразу каждые 10 секунд
+
+
 //window.onload = function() {
 //  var nameInput = document.getElementById('id_name');
 //  var surnameInput = document.getElementById('id_surname');
