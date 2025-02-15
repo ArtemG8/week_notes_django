@@ -1,14 +1,15 @@
-# from django.contrib import admin
-# from .models import Monday
-# from django.db.models import QuerySet
+from django.contrib import admin
+from .models import Todo
+from django.db.models import QuerySet
 #
 #
 # # Register your models here.
+
 # class MovieAdmin(admin.ModelAdmin):
 #     list_display = ['monday', 'tuesday', 'wednesday']
 #
 #
-# admin.site.register(Monday, MovieAdmin)
+admin.site.register(Todo)
 
 #
 # class RatingFilter(admin.SimpleListFilter):

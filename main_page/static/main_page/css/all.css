@@ -1,0 +1,103 @@
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #f5f7fa;
+            padding: 2rem 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .todo-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .todo-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .task-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .task-title {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .task-date {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+        }
+
+        .checkbox-label {
+            position: relative;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .custom-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            margin-right: 10px;
+            position: relative;
+            transition: background 0.2s;
+        }
+
+        .custom-checkbox.checked {
+            background: #3498db;
+            border-color: #3498db;
+        }
+
+        .custom-checkbox.checked::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 1px;
+            width: 6px;
+            height: 12px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .status-text {
+            color: #3498db;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        form {
+            margin: 0;
+        }
+
+        .hidden-input {
+            display: none;
+        }

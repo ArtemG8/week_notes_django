@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Todo List</title>
+     <link rel="stylesheet" href="{% static 'main_page/css/all.css' %}">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Список задач</h1>
+        {% for todo in todos %}
+            <div class="todo-card {% if todo.is_complete %}completed{% endif %}">
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="todo_id" value="{{ todo.id }}">
+
+                    <div class="task-header">
+                        <span class="task-title">{{ todo.title }}</span>
+                        <span class="task-date">{{ todo.date_of_task|date:"d M Y" }}</span>
+                    </div>
+
+                    <div class="checkbox-wrapper">
+                        <label class="checkbox-label" onclick="this.closest('form').submit()">
+                            <div class="custom-checkbox {% if todo.is_complete %}checked{% endif %}"></div>
+                            <span class="status-text">
+                                {% if todo.is_complete %}
+                                    Выполнено
+                                {% else %}
+                                    Отметить как выполненное
+                                {% endif %}
+                            </span>
+                        </label>
+                        <input
+                            type="checkbox"
+                            name="is_complete"
+                            {% if todo.is_complete %}checked{% endif %}
+                            class="hidden-input"
+                            onchange="this.form.submit()"
+                        >
+                    </div>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        // Добавляем анимацию при изменении статуса
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                const checkbox = this.querySelector('.custom-checkbox');
+                checkbox.classList.toggle('checked');
+
+                const statusText = this.querySelector('.status-text');
+                statusText.textContent = checkbox.classList.contains('checked')
+                    ? 'Выполнено'
+                    : 'Отметить как выполненное';
+            });
+        });
+    </script>
+</body>
+</html>

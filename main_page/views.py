@@ -1,5 +1,6 @@
-from django.shortcuts import render, HttpResponseRedirect
-from .models import Monday, Tuesday, Wednesday
+from django.http import HttpResponseNotFound
+from django.shortcuts import render, HttpResponseRedirect, redirect,get_object_or_404
+from .models import Todo
 from .forms import DataForm
 from datetime import datetime
 
@@ -120,25 +121,19 @@ def main(request):
         "Не бойся идти к своей мечте.",
         "Ты можешь всё, если по-настоящему захочешь."
     ]
+    model = Todo.objects.all()
+    print(model)
     data = {
         'days': days_of_week,
         'motivation': motivational_phrases,
+        'todo': model,
     }
+
     return render(request, 'main_page/main.html', context=data)
 
 
 def info_ab_days(request, model_name):
-    if model_name == 'Monday':
-        model = Monday.objects.values_list('task', 'date_of_create')
-    elif model_name == 'Tuesday':
-        model = Tuesday.objects.values_list('task', flat=True)
-    elif model_name == 'model3':
-        model = Wednesday.objects.values_list('task', flat=True)
-    else:
-        # Обработка случаев, когда модель не найдена
-        model = None
-
-    return render(request, 'main_page/info_redirect.html', {'days': model})
+    return render(request, 'main_page/info_redirect.html')
 
 
 def Form(request):
@@ -147,9 +142,9 @@ def Form(request):
         form = DataForm(request.POST)
         if form.is_valid():
             print(form.cleaned_data)
-            feed = Monday(
-                date_of_create=form.cleaned_data['date_of_create'],
-                task=form.cleaned_data['task']
+            feed = Todo(
+                date_of_task=form.cleaned_data['date_of_task'],
+                title=form.cleaned_data['title']
             )
             feed.save()
             return HttpResponseRedirect('/')
@@ -161,6 +156,28 @@ def Form(request):
     }
 
     return render(request, 'main_page/form.html', data)
+
+
+# views.py
+
+
+def all_data(request):
+    if request.method == 'POST':
+        todo_id = request.POST.get('todo_id')
+        is_complete = 'is_complete' in request.POST  # Измененный способ проверки
+
+        todo = get_object_or_404(Todo, id=todo_id)
+        todo.is_complete = is_complete
+        todo.save()
+        return redirect('todo_list')
+
+    todos = Todo.objects.all().order_by('-date_of_task')
+
+    return render(request, 'main_page/all_data.html', {'todos': todos})
+
+
+def page_not_found(request, exception):
+    return HttpResponseNotFound('Страница не найдена!')
 #
 #
 # def done(request):

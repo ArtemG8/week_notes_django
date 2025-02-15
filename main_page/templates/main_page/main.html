@@ -12,8 +12,9 @@
 <div class="block-container">
     <div class="left-buttons-container">
         {% for day in days %}
-        <a class="day-button" href="{%url 'info_dir' model_name=day %}">{{ day | title }}</a>
+        <a class="day-button" href="{%url 'info_dir' model_name=day %}">{{ day | title }} 01.01.1001</a>
         {% endfor %}
+
     </div>
     <div class="image-container">
         <img src="static/main_page/img/beautiful-scenery-of-sand-dunes-in-a-desert-area-on-a-sunny-day.jpg" alt="Картинка" class="center-image">
@@ -23,10 +24,30 @@
     </div>
     <div class="right-buttons-container">
         <a href="{%url 'form_dir' %}" class="about-button">Какие планы на сегодня?</a>
+        <a href="{%url 'todo_list' %}" class="all-button">Все ваши планы</a>
+
     </div>
 </div>
 
+<script>
+    let phrases = [
+        {% for phrase in motivation %}
+            "{{ phrase }}",
+        {% endfor %}
+    ];
+    let currentPhraseIndex = 0;
+    const motivationText = document.getElementById('motivation-text');
 
+    function getRandomPhrase() {
+        return phrases[Math.floor(Math.random() * phrases.length)];
+    }
+
+    function changePhrase() {
+        motivationText.textContent = getRandomPhrase();
+    }
+
+    setInterval(changePhrase, 10000); // Меняем фразу каждые 10 секунд
+</script>
 
 </body>
 </html>

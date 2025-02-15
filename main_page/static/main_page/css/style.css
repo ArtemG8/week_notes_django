@@ -8,6 +8,7 @@ body {
     gap: 20px;
     padding: 40px;
     padding-top: 40px;
+
 }
 
 .day-button {
@@ -29,8 +30,11 @@ body {
 }
 
 .right-buttons-container {
-    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
     color: white;
+    gap: 50px;
+
 }
 
 .about-button {
@@ -50,6 +54,29 @@ body {
 }
 
 .about-button:hover {
+    background-color: #D4DEDC;
+    transform: scale(1.05);
+}
+
+
+
+.all-button {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    padding: 25px 45px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 30px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 120px;
+    background-color: black;
+    color: white;
+    white-space: normal;
+    margin-left: 20px;
+}
+
+.all-button:hover {
     background-color: #D4DEDC;
     transform: scale(1.05);
 }
