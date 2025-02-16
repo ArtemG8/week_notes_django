@@ -23,6 +23,13 @@
                     <div class="checkbox-wrapper">
                         <label class="checkbox-label" onclick="this.closest('form').submit()">
                             <div class="custom-checkbox {% if todo.is_complete %}checked{% endif %}"></div>
+                            <input
+                            type="checkbox"
+                            name="is_complete"
+                            {% if todo.is_complete %}checked{% endif %}
+                            class="hidden-input"
+                            onchange="this.form.submit()"
+                        >
                             <span class="status-text">
                                 {% if todo.is_complete %}
                                     Выполнено
@@ -31,13 +38,7 @@
                                 {% endif %}
                             </span>
                         </label>
-                        <input
-                            type="checkbox"
-                            name="is_complete"
-                            {% if todo.is_complete %}checked{% endif %}
-                            class="hidden-input"
-                            onchange="this.form.submit()"
-                        >
+
                     </div>
                 </form>
             </div>
