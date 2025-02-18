@@ -9,6 +9,13 @@
 <body>
     <div class="container">
         <h1>Список задач</h1>
+        <button class="back-button" onclick="location.href='{% url 'main_page' %}'">Назад</button>
+        <div class="form-container">
+    <form method="get">{% csrf_token %}
+        <button name="def">Новое</button>
+        <button name="def2">Старое</button>
+    </form>
+</div>
         {% for todo in todos %}
             <div class="todo-card {% if todo.is_complete %}completed{% endif %}">
                 <form method="post">
@@ -45,6 +52,8 @@
         {% endfor %}
     </div>
 
+
+
     <script>
         // Добавляем анимацию при изменении статуса
         document.querySelectorAll('form').forEach(form => {
@@ -58,6 +67,8 @@
                     : 'Отметить как выполненное';
             });
         });
+
+
     </script>
 </body>
 </html>

@@ -147,7 +147,7 @@ def Form(request):
                 title=form.cleaned_data['title']
             )
             feed.save()
-            return HttpResponseRedirect('/')
+            return redirect('main_page')
     else:
         form = DataForm()
     data = {
@@ -169,9 +169,12 @@ def all_data(request):
         todo = get_object_or_404(Todo, id=todo_id)
         todo.is_complete = is_complete
         todo.save()
-        return redirect('todo_list')
+        # return redirect('todo_list')
 
-    todos = Todo.objects.all().order_by('-date_of_task')
+    if 'def2' in request.GET:
+        todos = Todo.objects.all().order_by('date_of_task')
+    else:
+        todos = Todo.objects.all().order_by('-date_of_task')
 
     return render(request, 'main_page/all_data.html', {'todos': todos})
 
