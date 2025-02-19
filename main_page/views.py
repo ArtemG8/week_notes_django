@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.http import HttpResponseNotFound
 from django.shortcuts import render, HttpResponseRedirect, redirect,get_object_or_404
 from .models import Todo
@@ -147,6 +148,7 @@ def Form(request):
                 title=form.cleaned_data['title']
             )
             feed.save()
+            messages.success(request, 'Данные успешно сохранены!')
             return redirect('main_page')
     else:
         form = DataForm()
@@ -154,6 +156,7 @@ def Form(request):
         'form': form,
         'min_day_value': min_day_value,
     }
+
 
     return render(request, 'main_page/form.html', data)
 
