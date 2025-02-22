@@ -157,3 +157,26 @@ button {
 button:hover {
     background-color: #4682B4; /* цвет при наведении */
 }
+
+.delete-icon {
+    color: red;
+    font-size: 20px; /* размер шрифта */
+    cursor: pointer; /* указатель при наведении */
+    float: right; /* выровнять вправо */
+    margin-left: 10px; /* отступ слева */
+}
+
+.todo-card {
+    position: relative; /* чтобы обеспечить правильное расположение крестика */
+    padding: 10px;
+    border: px solid #ccc;
+    margin-bottom: 10px;
+    border-radius: 3px; /* закругленные углы */
+    background-color: #FFFFFF; /* цвет фона */
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between; /* разделяет заголовок и дату */
+    align-items: center;
+}

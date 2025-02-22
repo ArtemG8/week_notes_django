@@ -167,12 +167,16 @@ def Form(request):
 def all_data(request):
     if request.method == 'POST':
         todo_id = request.POST.get('todo_id')
-        is_complete = 'is_complete' in request.POST  # Измененный способ проверки
 
+        if 'delete' in request.POST:
+            todo = get_object_or_404(Todo, id=todo_id)
+            todo.delete()
+            return redirect('todo_list')
+
+        is_complete = 'is_complete' in request.POST
         todo = get_object_or_404(Todo, id=todo_id)
         todo.is_complete = is_complete
         todo.save()
-        # return redirect('todo_list')
 
     if 'def2' in request.GET:
         todos = Todo.objects.all().order_by('date_of_task')

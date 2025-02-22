@@ -3,55 +3,56 @@
 <html>
 <head>
     <title>Todo List</title>
-     <link rel="stylesheet" href="{% static 'main_page/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'main_page/css/all_tasks.css' %}">
 
 </head>
 <body>
 
     <div class="container">
         <h1>Список задач</h1>
-
         <div class="form-container">
-    <form method="get">{% csrf_token %}
+    <form method="get">
         <button name="def">Новое</button>
         <button name="def2">Старое</button>
     </form>
 </div>
     <button class="back-button" onclick="location.href='{% url 'main_page' %}'">Назад</button>
     {% for todo in todos %}
-        <div class="todo-card {% if todo.is_complete %}completed{% endif %}">
-            <form method="post">
-                {% csrf_token %}
-                <input type="hidden" name="todo_id" value="{{ todo.id }}">
-
-                <div class="task-header">
-                    <span class="task-title">{{ todo.title }}</span>
-                    <span class="task-date">{{ todo.date_of_task|date:"d M Y" }}</span>
-                </div>
-
-                <div class="checkbox-wrapper">
-                    <label class="checkbox-label" onclick="this.closest('form').submit()">
-                        <div class="custom-checkbox {% if todo.is_complete %}checked{% endif %}"></div>
-                        <input
-                        type="checkbox"
-                        name="is_complete"
-                        {% if todo.is_complete %}checked{% endif %}
-                        class="hidden-input"
-                        onchange="this.form.submit()"
+    <div class="todo-card {% if todo.is_complete %}completed{% endif %}">
+        <form method="post" style="display:inline;">
+            {% csrf_token %}
+            <input type="hidden" name="todo_id" value="{{ todo.id }}">
+            <span class="delete-icon" onclick="confirmDelete('{{ todo.id }}')">✖</span>
+        </form>
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="todo_id" value="{{ todo.id }}">
+            <div class="task-header">
+                <span class="task-title">{{ todo.title }}</span>
+                <span class="task-date">{{ todo.date_of_task|date:"d M Y" }}</span>
+            </div>
+            <div class="checkbox-wrapper">
+                <label class="checkbox-label" onclick="this.closest('form').submit()">
+                    <div class="custom-checkbox {% if todo.is_complete %}checked{% endif %}"></div>
+                    <input
+                    type="checkbox"
+                    name="is_complete"
+                    {% if todo.is_complete %}checked{% endif %}
+                    class="hidden-input"
+                    onchange="this.form.submit()"
                     >
-                        <span class="status-text">
-                            {% if todo.is_complete %}
-                                Выполнено
-                            {% else %}
-                                Отметить как выполненное
-                            {% endif %}
-                        </span>
-                    </label>
-
-                </div>
-            </form>
-        </div>
-    {% endfor %}
+                    <span class="status-text">
+                        {% if todo.is_complete %}
+                            Выполнено
+                        {% else %}
+                            Отметить как выполненное
+                        {% endif %}
+                    </span>
+                </label>
+            </div>
+        </form>
+    </div>
+{% endfor %}
 </div>
 
 
@@ -69,6 +70,17 @@
                     : 'Отметить как выполненное';
             });
         });
+
+        function confirmDelete(todoId) {
+            if (confirm('Вы уверены, что хотите удалить эту задачу?')) {
+                const form = document.createElement('form');
+                form.method = 'post';
+                form.action = ''; // Отправка на текущий URL
+                form.innerHTML = `{% csrf_token %}<input type="hidden" name="todo_id" value="${todoId}"><input type="hidden" name="delete" value="true">`;
+                document.body.appendChild(form);
+                form.submit();
+            }
+        }
 
 
     </script>
