@@ -6,6 +6,7 @@
     <title>Как вы?</title>
     <link rel="stylesheet" href="{% static 'main_page/css/style.css' %}">
     <link rel="icon" href=" static/main_page/img/favicon.png " type="image/x-icon">
+    <script src="{% static 'main_page/js/main_page.js' %}"></script>
 </head>
 <body>
 
@@ -28,10 +29,6 @@
 
     </div>
 </div>
-
-
-
-    <!-- Блок для сообщений -->
     {% if messages %}
         {% for message in messages %}
         <div class="alert" role="alert">
@@ -39,55 +36,6 @@
         </div>
         {% endfor %}
     {% endif %}
-
-    <!-- Основной контент -->
-    {% block content %}{% endblock %}
-
-    <!-- Опциональный JS для гарантированного скрытия -->
-
-
-<script>
-    let phrases = [
-        {% for phrase in motivation %}
-            "{{ phrase }}",
-        {% endfor %}
-    ];
-    let currentPhraseIndex = 0;
-    const motivationText = document.getElementById('motivation-text');
-
-    function getRandomPhrase() {
-        return phrases[Math.floor(Math.random() * phrases.length)];
-    }
-
-    function changePhrase() {
-        motivationText.textContent = getRandomPhrase();
-    }
-
-    setInterval(changePhrase, 10000); // Меняем фразу каждые 10 секунд
-
-
-        document.addEventListener('DOMContentLoaded', function() {
-        const alerts = document.querySelectorAll('.alert');
-
-        alerts.forEach(alert => {
-            // Инициализация анимации
-            setTimeout(() => {
-                alert.classList.add('show');
-            }, 50); // Небольшая задержка для активации перехода
-
-            // Убираем сообщение
-            setTimeout(() => {
-                alert.classList.remove('show');
-                alert.classList.add('hide');
-
-                // Удаление элемента после анимации
-                setTimeout(() => {
-                    alert.remove();
-                }, 800); // Совпадает с длительностью анимации 0.8s
-            }, 4000);
-        });
-    });
-</script>
 
 </body>
 </html>
