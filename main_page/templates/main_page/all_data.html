@@ -14,11 +14,12 @@
         <h1>Список задач</h1>
         <div class="form-container">
     <form method="get">
-        <button name="def">Новое</button>
-        <button name="def2">Старое</button>
+            <button name="New">Новое</button>
+            <button name="Old">Старое</button>
     </form>
 </div>
     <button class="back-button" onclick="location.href='{% url 'main_page' %}'">Назад</button>
+    <button class="new-task-button" onclick="location.href='{% url 'form_dir' %}'">Создать новую<br>запись</button>
     {% for todo in todos %}
     <div class="todo-card {% if todo.is_complete %}completed{% endif %}">
         <form method="post" style="display:inline;">
@@ -60,19 +61,6 @@
 
 
     <script>
-        // Добавляем анимацию при изменении статуса
-        document.querySelectorAll('form').forEach(form => {
-            form.addEventListener('submit', function(e) {
-                const checkbox = this.querySelector('.custom-checkbox');
-                checkbox.classList.toggle('checked');
-
-                const statusText = this.querySelector('.status-text');
-                statusText.textContent = checkbox.classList.contains('checked')
-                    ? 'Выполнено'
-                    : 'Отметить как выполненное';
-            });
-        });
-
         function confirmDelete(todoId) {
             if (confirm('Вы уверены, что хотите удалить эту задачу?')) {
                 const form = document.createElement('form');
@@ -83,8 +71,6 @@
                 form.submit();
             }
         }
-
-
     </script>
 
 

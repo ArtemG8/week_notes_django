@@ -1,4 +1,4 @@
- // Добавляем анимацию при изменении статуса
+// Добавляем анимацию при изменении статуса
         document.querySelectorAll('form').forEach(form => {
             form.addEventListener('submit', function(e) {
                 const checkbox = this.querySelector('.custom-checkbox');
@@ -10,15 +10,3 @@
                     : 'Отметить как выполненное';
             });
         });
-
-        function confirmDelete(todoId) {
-            if (confirm('Вы уверены, что хотите удалить эту задачу?')) {
-                const form = document.createElement('form');
-                form.method = 'post';
-                form.action = ''; // Отправка на текущий URL
-                form.innerHTML = `<input type="hidden" name="todo_id" value="${todoId}"><input type="hidden" name="delete" value="true">`;
-                document.body.appendChild(form);
-                form.submit();
-            }
-        }
-

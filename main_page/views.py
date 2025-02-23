@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.http import HttpResponseNotFound
-from django.shortcuts import render, HttpResponseRedirect, redirect,get_object_or_404
+from django.shortcuts import render, HttpResponseRedirect, redirect, get_object_or_404
 from .models import Todo
 from .forms import DataForm
 from datetime import datetime
@@ -123,7 +123,6 @@ def main(request):
         "Ты можешь всё, если по-настоящему захочешь."
     ]
     model = Todo.objects.all()
-    print(model)
     data = {
         'days': days_of_week,
         'motivation': motivational_phrases,
@@ -157,7 +156,6 @@ def Form(request):
         'min_day_value': min_day_value,
     }
 
-
     return render(request, 'main_page/form.html', data)
 
 
@@ -168,17 +166,17 @@ def all_data(request):
     if request.method == 'POST':
         todo_id = request.POST.get('todo_id')
 
-        if 'delete' in request.POST:
+        if 'delete' in request.POST:  # крестик удаления записи
             todo = get_object_or_404(Todo, id=todo_id)
             todo.delete()
             return redirect('todo_list')
 
-        is_complete = 'is_complete' in request.POST
+        is_complete = 'is_complete' in request.POST  # выполнена ли запись
         todo = get_object_or_404(Todo, id=todo_id)
         todo.is_complete = is_complete
         todo.save()
 
-    if 'def2' in request.GET:
+    if 'Old' in request.GET:  # сортировка записей по дате
         todos = Todo.objects.all().order_by('date_of_task')
     else:
         todos = Todo.objects.all().order_by('-date_of_task')
@@ -188,10 +186,3 @@ def all_data(request):
 
 def page_not_found(request, exception):
     return HttpResponseNotFound('Страница не найдена!')
-#
-#
-# def done(request):
-#     data = {
-#         'user_name': Feedback.name
-#     }
-#     return render(request, 'feedback/donne.html', context=data)

@@ -102,52 +102,22 @@ form {
     display: none;
 }
 
-.back-button {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    position: absolute;
-    top: 60px;
-    right: 150px;
-    border-radius: 5px;
-}
-
-.back-button:hover {
-    background-color: #2ecc71;
-}
-
-.sort-button {
-    background-color: #f5f7fa;
-    border: 1px solid #ddd;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-left: 20px;
-}
-
-.sort-button option {
-    padding: 10px;
-}
-
-
 .form-container {
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 0;
+    top: 15px;
     left: 0;
     width: 100%;
     height: 100px; /* по необходимости можно регулировать */
 }
 
 button {
-    background-color: #87CEEB; /* цвет кнопки */
+    background-color: #3498db; /* цвет кнопки */
     color: #fff; /* цвет текста */
     border: none;
+    border-radius: 5px;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -156,6 +126,40 @@ button {
 
 button:hover {
     background-color: #4682B4; /* цвет при наведении */
+}
+
+.back-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    position: fixed;
+    top: 60px;
+    right: 150px;
+    border-radius: 5px;
+}
+
+.back-button:hover {
+    background-color: #4682B4;
+}
+
+.new-task-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    position: fixed;
+    top: 150px;
+    right: 120px;
+    border-radius: 5px;
+}
+
+.new-task-button:hover {
+    background-color: #2ecc71;
 }
 
 .delete-icon {
@@ -171,7 +175,7 @@ button:hover {
     padding: 10px;
     border: px solid #ccc;
     margin-bottom: 10px;
-    border-radius: 3px; /* закругленные углы */
+    border-radius: 8px; /* закругленные углы */
     background-color: #FFFFFF; /* цвет фона */
 }
 
