@@ -144,7 +144,8 @@ def Form(request):
             print(form.cleaned_data)
             feed = Todo(
                 date_of_task=form.cleaned_data['date_of_task'],
-                title=form.cleaned_data['title']
+                title=form.cleaned_data['title'],
+                description=form.cleaned_data['description'],
             )
             feed.save()
             messages.success(request, 'Данные успешно сохранены!')
@@ -157,9 +158,6 @@ def Form(request):
     }
 
     return render(request, 'main_page/form.html', data)
-
-
-# views.py
 
 
 def all_data(request):

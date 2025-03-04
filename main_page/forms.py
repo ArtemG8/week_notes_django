@@ -21,8 +21,8 @@ class DataForm(forms.Form):
                                             'min_length': 'Ваше имя не может быть на столько коротким!'
                                             })
     date_of_task = forms.DateTimeField(label='Выберите день задачи', error_messages={'required': 'Заполните поля!'},
-                                   widget=forms.DateInput(attrs={'type': 'date'}))
-
+                                       widget=forms.DateInput(attrs={'type': 'date'}))
+    description = forms.CharField(label="Описание", widget=forms.Textarea)
 
 # attrs={'type': 'date', 'min': min_day_value, 'value': min_day_value, 'style': 'width: 200px; height: 40px;'}),
 

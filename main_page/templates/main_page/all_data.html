@@ -22,39 +22,40 @@
     <button class="new-task-button" onclick="location.href='{% url 'form_dir' %}'">Создать новую<br>запись</button>
     {% for todo in todos %}
     <div class="todo-card {% if todo.is_complete %}completed{% endif %}">
-        <form method="post" style="display:inline;">
-            {% csrf_token %}
-            <input type="hidden" name="todo_id" value="{{ todo.id }}">
-            <span class="delete-icon" onclick="confirmDelete('{{ todo.id }}')">✖</span>
-        </form>
-        <form method="post">
-            {% csrf_token %}
-            <input type="hidden" name="todo_id" value="{{ todo.id }}">
-            <div class="task-header">
-                <span class="task-title">{{ todo.title }}</span>
-                <span class="task-date">{{ todo.date_of_task|date:"d M Y" }}</span>
-            </div>
-            <div class="checkbox-wrapper">
-                <label class="checkbox-label" onclick="this.closest('form').submit()">
-                    <div class="custom-checkbox {% if todo.is_complete %}checked{% endif %}"></div>
-                    <input
-                    type="checkbox"
-                    name="is_complete"
-                    {% if todo.is_complete %}checked{% endif %}
-                    class="hidden-input"
-                    onchange="this.form.submit()"
-                    >
-                    <span class="status-text">
-                        {% if todo.is_complete %}
-                            Выполнено
-                        {% else %}
-                            Отметить как выполненное
-                        {% endif %}
-                    </span>
-                </label>
-            </div>
-        </form>
-    </div>
+    <form method="post" style="display:inline;">
+        {% csrf_token %}
+        <input type="hidden" name="todo_id" value="{{ todo.id }}">
+        <span class="delete-icon" onclick="confirmDelete('{{ todo.id }}')">✖</span>
+    </form>
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="todo_id" value="{{ todo.id }}">
+        <div class="task-header">
+            <span class="task-title">{{ todo.title }}</span>
+            <span class="task-date">{{ todo.date_of_task|date:"d M Y" }}</span>
+        </div>
+        <div class="task-description-container">
+            <span class="task-description">{{ todo.description }}</span>
+        </div>
+        <div class="checkbox-wrapper">
+            <label class="checkbox-label" onclick="this.closest('form').submit()">
+                <div class="custom-checkbox {% if todo.is_complete %}checked{% endif %}"></div>
+                <input type="checkbox"
+                       name="is_complete"
+                       {% if todo.is_complete %}checked{% endif %}
+                       class="hidden-input"
+                       onchange="this.form.submit()">
+                <span class="status-text">
+                    {% if todo.is_complete %}
+                        Выполнено
+                    {% else %}
+                        Отметить как выполненное
+                    {% endif %}
+                </span>
+            </label>
+        </div>
+    </form>
+</div>
 {% endfor %}
 </div>
 

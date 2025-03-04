@@ -11,6 +11,7 @@
 </head>
 <body>
 <h2>Здравствуйте, какие планы на сегодня?</h2>
+    <button class="back-button" onclick="location.href='{% url 'main_page' %}'">Назад</button>
   <form  method="post">
   {% csrf_token %}
 

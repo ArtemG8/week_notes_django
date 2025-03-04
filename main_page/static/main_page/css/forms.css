@@ -74,7 +74,7 @@ input[type="submit"] {
   border-radius: 7px;
   cursor: pointer;
   font-size: 18px;
-  transition: background-color 0.5s ease;
+  transition: background-color 0.4s ease;
 }
 
 input[type="submit"]:hover {
@@ -119,5 +119,24 @@ input[type="submit"]:hover {
   50% { transform: translateX(5px); }
   75% { transform: translateX(-5px); }
   100% { transform: translateX(0); }
+}
+
+
+.back-button {
+    background-color: #1A1A1A;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    position: fixed;
+    top: 60px;
+    right: 210px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #6C6C6C;
 }
 

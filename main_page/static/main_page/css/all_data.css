@@ -64,7 +64,7 @@ body {
 .custom-checkbox {
     width: 20px;
     height: 20px;
-    border: 2px solid #3498db;
+    border: 2px solid #1A1A1A;
     border-radius: 5px;
     margin-right: 10px;
     position: relative;
@@ -72,8 +72,8 @@ body {
 }
 
 .custom-checkbox.checked {
-    background: #3498db;
-    border-color: #3498db;
+    background: #1A1A1A;
+    border-color: #1A1A1A;
 }
 
 .custom-checkbox.checked::after {
@@ -89,7 +89,7 @@ body {
 }
 
 .status-text {
-    color: #3498db;
+    color: #1A1A1A;
     font-weight: 500;
     font-size: 0.95rem;
 }
@@ -114,7 +114,7 @@ form {
 }
 
 button {
-    background-color: #3498db; /* цвет кнопки */
+    background-color: #1A1A1A; /* цвет кнопки */
     color: #fff; /* цвет текста */
     border: none;
     border-radius: 5px;
@@ -125,11 +125,11 @@ button {
 }
 
 button:hover {
-    background-color: #4682B4; /* цвет при наведении */
+    background-color: #6C6C6C; /* цвет при наведении */
 }
 
 .back-button {
-    background-color: #3498db;
+    background-color: #1A1A1A;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -139,14 +139,15 @@ button:hover {
     top: 60px;
     right: 150px;
     border-radius: 5px;
+    transition: background-color 0.2s ease;
 }
 
 .back-button:hover {
-    background-color: #4682B4;
+    background-color: #6C6C6C;
 }
 
 .new-task-button {
-    background-color: #3498db;
+    background-color: #1A1A1A;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -156,10 +157,11 @@ button:hover {
     top: 150px;
     right: 120px;
     border-radius: 5px;
+    transition: background-color 0.2s ease;
 }
 
 .new-task-button:hover {
-    background-color: #2ecc71;
+    background-color: #6C6C6C;
 }
 
 .delete-icon {
@@ -183,4 +185,27 @@ button:hover {
     display: flex;
     justify-content: space-between; /* разделяет заголовок и дату */
     align-items: center;
+}
+
+.task-description-container {
+    max-height: 20px; /* Начальная высота для спокойного состояния */
+    overflow: hidden; /* Обрезаем излишки текста */
+    transition: max-height 0.4s ease; /* Плавная анимация изменения высоты */
+    position: relative;
+}
+
+.todo-card:hover .task-description-container {
+    max-height: 100px; /* Максимальная высота при наведении */
+}
+
+.task-description {
+    color: #2c3e50; /* Цвет текста описания */
+    font-size: 1rem; /* Размер шрифта */
+    text-transform: capitalize;
+    opacity: 0.4; /* Небольшая прозрачность для спокойного состояния */
+    transition: opacity 0.4s ease; /* Плавный переход для изменения прозрачности */
+}
+
+.todo-card:hover .task-description {
+    opacity: 1; /* Полная непрозрачность при наведении */
 }
